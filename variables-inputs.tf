@@ -1,6 +1,4 @@
-# Variables to be specified when creating this infrastructure.
-
-variable "subscription" {
+variable "env" {
   type = "string"
 }
 

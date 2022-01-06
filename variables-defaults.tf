@@ -5,6 +5,11 @@ variable "product" {
   default = "tax-tribunals"
 }
 
+variable "product_name_short" {
+  type = "string"
+  default = "tt"
+}
+
 variable "location" {
   type = "string"
   default = "UK South"
@@ -22,8 +27,9 @@ variable "common_tags" {
   }
 }
 
-variable "env" {
+variable "subscription" {
   type = "string"
+  default = "DTS-SHAREDSERVICES-${upper(var.env)}"
 }
 
 # Database
@@ -34,6 +40,7 @@ variable "db_name" {
 
 variable "db_storage_mb" {
   type = "string"
+  default = "5120"
 }
 
 variable "db_component_name" {
