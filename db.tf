@@ -1,9 +1,3 @@
-data "azurerm_subnet" "postgres" {
-  name                 = "iaas"
-  resource_group_name  = "ss-${var.env}-network-rg"
-  virtual_network_name = "ss-${var.env}-vnet"
-}
-
 module "tt-database" {
   source                = "git@github.com:hmcts/cnp-module-postgres?ref=postgresql_tf"
   product               = var.product
@@ -16,10 +10,16 @@ module "tt-database" {
   common_tags           = var.common_tags
   subscription          = var.subscription
   storage_mb            = var.db_storage_mb
-  business_area        = "SDS"
-  key_vault_rg       = "genesis-rg"
-  key_vault_name     = "dtssharedservices${var.env}kv"
-  subnet_id          = data.azurerm_subnet.postgres.id
+  business_area         = "SDS"
+  key_vault_rg          = "genesis-rg"
+  key_vault_name        = "dtssharedservices${var.env}kv"
+  subnet_id             = data.azurerm_subnet.postgres.id
+}
+
+data "azurerm_subnet" "postgres" {
+  name                 = "iaas"
+  resource_group_name  = "ss-${var.env}-network-rg"
+  virtual_network_name = "ss-${var.env}-vnet"
 }
 
 # Add DB outputs to keyvault
