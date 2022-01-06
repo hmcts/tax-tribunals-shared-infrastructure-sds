@@ -6,7 +6,6 @@ variable "product" {
 }
 
 variable "product_name_short" {
-  type = "string"
   default = "tt"
 }
 
