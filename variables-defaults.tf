@@ -1,8 +1,6 @@
 # Variables with default values or values specified in an {env}.tfvars file
 
 variable "product" {
-  type = "string"
-  default = "tax-tribunals"
 }
 
 variable "product_name_short" {
@@ -19,8 +17,6 @@ variable "common_tags" {
 }
 
 variable "subscription" {
-  type = "string"
-  default = "DTS-SHAREDSERVICES-${upper(var.env)}"
 }
 
 # Database
@@ -34,7 +30,7 @@ variable "db_storage_mb" {
 
 variable "component" {
   type = "string"
-  default = "postgres-database"
+  default = "service"
 }
 
 variable "db_version" {
