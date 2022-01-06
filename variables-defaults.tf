@@ -43,7 +43,7 @@ variable "db_storage_mb" {
   default = "5120"
 }
 
-variable "db_component_name" {
+variable "component" {
   type = "string"
   default = "postgres-database"
 }
