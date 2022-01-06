@@ -39,7 +39,6 @@ variable "db_name" {
 }
 
 variable "db_storage_mb" {
-  type = "string"
   default = "5120"
 }
 
