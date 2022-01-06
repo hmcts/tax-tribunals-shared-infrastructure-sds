@@ -20,9 +20,6 @@ variable "subscription" {
 
 # Database
 
-variable "db_name" {
-}
-
 variable "db_storage_mb" {
   default = "5120"
 }
