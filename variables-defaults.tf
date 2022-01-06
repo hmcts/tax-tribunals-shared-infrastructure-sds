@@ -17,14 +17,6 @@ variable "location" {
 
 variable "common_tags" {
   type = "map"
-  default = {
-    "tag_service" = "tt",
-    "tag_project_name" = "pet-devops",
-    "tag_cost_center" = "iCode-Drone",
-    "tag_app_operations_owner" = "pet-devops",
-    "tag_system_owner" = "pet-devops",
-    "tag_budget_owner" = "pet-devops"
-  }
 }
 
 variable "subscription" {
