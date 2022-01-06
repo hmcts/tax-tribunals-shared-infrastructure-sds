@@ -8,12 +8,11 @@ variable "product_name_short" {
 }
 
 variable "location" {
-  type = "string"
   default = "UK South"
 }
 
 variable "common_tags" {
-  type = "map"
+  type = map(string)
 }
 
 variable "subscription" {
@@ -29,23 +28,19 @@ variable "db_storage_mb" {
 }
 
 variable "component" {
-  type = "string"
   default = "service"
 }
 
 variable "db_version" {
-  type = "number"
   default = 11
 }
 
 variable "db_postgresql_user" {
-  type = "string"
   default = "tax_tribunals_postgresql_user"
 }
 
 # Keyvault
 
 variable "product_group_name" {
-  type    = "string"
   default = "dcd_group_pet_v2"
 }
