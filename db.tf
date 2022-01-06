@@ -1,7 +1,7 @@
 module "tt-database" {
   source                = "git@github.com:hmcts/cnp-module-postgres?ref=postgresql_tf"
   product               = var.product
-  component             = var.db_component_name
+  component             = var.component
   location              = var.location
   env                   = var.env
   postgresql_user       = var.db_postgresql_user
@@ -27,29 +27,29 @@ data "azurerm_subnet" "postgres" {
 resource "azurerm_key_vault_secret" "tt-postgres-user" {
   name         = "tt-postgres-user"
   value        = module.tt-database.user_name
-  key_vault_id = module.key-vault.key_vault_id
+  key_vault_id = module.tt-key-vault.key_vault_id
 }
 
 resource "azurerm_key_vault_secret" "tt-postgres-password" {
   name         = "tt-postgres-password"
   value        = module.tt-database.postgresql_password
-  key_vault_id = module.key-vault.key_vault_id
+  key_vault_id = module.tt-key-vault.key_vault_id
 }
 
 resource "azurerm_key_vault_secret" "tt-postgres-host" {
   name         = "tt-postgres-host"
   value        = module.tt-database.host_name
-  key_vault_id = module.key-vault.key_vault_id
+  key_vault_id = module.tt-key-vault.key_vault_id
 }
 
 resource "azurerm_key_vault_secret" "tt-postgres-port" {
   name         = "tt-postgres-port"
   value        = module.tt-database.postgresql_listen_port
-  key_vault_id = module.key-vault.key_vault_id
+  key_vault_id = module.tt-key-vault.key_vault_id
 }
 
 resource "azurerm_key_vault_secret" "tt-postgres-database" {
   name         = "tt-postgres-database"
   value        = module.tt-database.postgresql_database
-  key_vault_id = module.key-vault.key_vault_id
+  key_vault_id = module.tt-key-vault.key_vault_id
 }
