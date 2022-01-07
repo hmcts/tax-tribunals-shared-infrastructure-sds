@@ -5,7 +5,7 @@ module "tt-database" {
   location              = var.location
   env                   = var.env
   postgresql_user       = var.db_postgresql_user
-  database_name         = "${var.product}-${var.env}"
+  database_name         = "db-${var.env}"
   postgresql_version    = var.db_version
   common_tags           = var.common_tags
   subscription          = var.subscription
