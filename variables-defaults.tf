@@ -1,21 +1,11 @@
 # Variables with default values or values specified in an {env}.tfvars file
 
-variable "product" {
-}
-
-variable "product_name_short" {
-  default = "tt"
-}
-
 variable "location" {
   default = "UK South"
 }
 
 variable "common_tags" {
   type = map(string)
-}
-
-variable "subscription" {
 }
 
 # Database
