@@ -1,7 +1,7 @@
 module "tt-database" {
   source                = "git@github.com:hmcts/cnp-module-postgres?ref=postgresql_tf"
   product               = var.product
-  component             = var.component
+  component             = "service"
   location              = var.location
   env                   = var.env
   postgresql_user       = var.db_postgresql_user
