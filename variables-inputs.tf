@@ -1,5 +1,9 @@
 variable "env" {}
 
+variable "product" {}
+
+variable "subscription" {}
+
 # Keyvault
 
 variable "tenant_id" {
