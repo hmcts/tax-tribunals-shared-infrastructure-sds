@@ -24,9 +24,9 @@ module "tt-database" {
 
 data "azurerm_subnet" "postgres" {
   provider = "azurerm.pet-aks-stg"
-  name = "pet_private_stg"
-  virtual_network_name = "pet_stg_network"
-  resource_group_name  = "pet_stg_network_resource_group"
+  name = "pet_private_${var.env}"
+  virtual_network_name = "pet_${var.env}_network"
+  resource_group_name  = "pet_${var.env}_network_resource_group"
 }
 # Add DB outputs to keyvault
 
