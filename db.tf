@@ -16,12 +16,18 @@ module "tt-database" {
   subnet_id             = data.azurerm_subnet.postgres.id
 }
 
-data "azurerm_subnet" "postgres" {
-  name                 = "iaas"
-  resource_group_name  = "ss-${var.env}-network-rg"
-  virtual_network_name = "ss-${var.env}-vnet"
-}
+//data "azurerm_subnet" "postgres" {
+//  name                 = "iaas"
+//  resource_group_name  = "ss-${var.env}-network-rg"
+//  virtual_network_name = "ss-${var.env}-vnet"
+//}
 
+data "azurerm_subnet" "postgres" {
+  provider = "azurerm.pet-aks-stg"
+  name = "pet_private_stg"
+  virtual_network_name = "pet_stg_network"
+  resource_group_name  = "pet_stg_network_resource_group"
+}
 # Add DB outputs to keyvault
 
 resource "azurerm_key_vault_secret" "tt-postgres-user" {

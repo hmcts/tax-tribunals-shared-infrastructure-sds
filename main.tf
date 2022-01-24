@@ -13,3 +13,8 @@ resource "azurerm_resource_group" "rg" {
   location = var.location
   tags     = var.common_tags
 }
+##privateendpoint subnet
+provider "azurerm" {
+  subscription_id = "58a2ce36-4e09-467b-8330-d164aa559c68"
+  alias           = "pet-aks-stg"
+}
