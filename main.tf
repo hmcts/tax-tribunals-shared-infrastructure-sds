@@ -16,11 +16,6 @@ resource "azurerm_resource_group" "rg" {
 #PET subnet for privateendpoint
 provider "azurerm" {
   subscription_id = "58a2ce36-4e09-467b-8330-d164aa559c68"
-  alias           = "pet-aks-stg"
-  features {}
-}
-provider "azurerm" {
-  subscription_id = "58a2ce36-4e09-467b-8330-d164aa559c68"
-  alias           = "pet-aks-prod"
+  alias           = "pet-aks"
   features {}
 }
