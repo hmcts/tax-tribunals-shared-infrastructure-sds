@@ -5,7 +5,7 @@ data "azurerm_subnet" "petpostgres" {
   resource_group_name  = "pet_${var.env}_network_resource_group"
 }
 
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "petrg" {
   provider = "azurerm.pet-aks"
   name                = "${var.product}-${var.env}-endpoint-rg"
   location            = var.location
