@@ -6,11 +6,13 @@ data "azurerm_subnet" "petpostgres" {
 }
 
 resource "azurerm_resource_group" "rg" {
+  provider = "azurerm.pet-aks"
   name                = "${var.product}-${var.env}-endpoint-rg"
   location            = var.location
 
 }
 resource "azurerm_private_endpoint" "petpostgres" {
+  provider = "azurerm.pet-aks"
   name                = "${var.product}-${var.env}-endpoint"
   location            = var.location
   resource_group_name = azurerm_resource_group.rg.id
