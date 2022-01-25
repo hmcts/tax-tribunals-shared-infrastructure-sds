@@ -1,5 +1,5 @@
 module "tt-database" {
-  source                = "git@github.com:hmcts/cnp-module-postgres?ref=postgresql_tf"
+  source                = "git@github.com:hmcts/cnp-module-postgres?ref=pet-disable-dns-setting"
   product               = var.product
   component             = ""
   location              = var.location
