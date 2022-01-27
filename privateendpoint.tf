@@ -1,25 +1,28 @@
 data "azurerm_subnet" "petpostgres" {
   provider             = "azurerm.pet-aks"
-  name                 = "pet_private_${var.env}"
-  virtual_network_name = "pet_${var.env}_network"
-  resource_group_name  = "pet_${var.env}_network_resource_group"
+  name                 = "pet_private_${local.petenv}"
+  virtual_network_name = "pet_${local.petenv}_network"
+  resource_group_name  = "pet_${local.petenv}_network_resource_group"
 }
 
+locals {
+  petenv = var.env == "prod" || var.env == "stg" ? var.env : "dev"
+}
 resource "azurerm_resource_group" "petrg" {
   provider = "azurerm.pet-aks"
-  name     = "${var.product}-${var.env}-endpoint-rg"
+  name     = "${var.product}-${local.petenv}-endpoint-rg"
   location = var.location
 
 }
 resource "azurerm_private_endpoint" "petpostgres" {
   provider            = "azurerm.pet-aks"
-  name                = "${var.product}-${var.env}-endpoint"
+  name                = "${var.product}-${local.petenv}-endpoint"
   location            = var.location
   resource_group_name = azurerm_resource_group.petrg.name
   subnet_id           = data.azurerm_subnet.petpostgres.id
 
   private_service_connection {
-    name                           = "${var.product}-${var.env}-postgressdb"
+    name                           = "${var.product}-${local.petenv}-postgressdb"
     private_connection_resource_id = module.tt-database.id
     subresource_names              = ["postgresqlServer"]
     is_manual_connection           = false
