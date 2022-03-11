@@ -8,7 +8,7 @@ module "redis" {
 }
 
 data "azurerm_subnet" "redis" {
-  name                 = "tt-redis"
+  name                 = "redis"
   resource_group_name  = "ss-${var.env}-network-rg"
   virtual_network_name = "ss-${var.env}-vnet"
 }
