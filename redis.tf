@@ -20,13 +20,13 @@ resource "azurerm_key_vault_secret" "tt-redis-access-key" {
 }
 
 resource "azurerm_key_vault_secret" "tt-redis-host" {
-  name         = "redis-access-key"
+  name         = "redis-host"
   value        = module.redis.host_name
   key_vault_id = module.tt-key-vault.key_vault_id
 }
 
 resource "azurerm_key_vault_secret" "tt-redis-port" {
-  name         = "redis-access-key"
+  name         = "redis-port"
   value        = module.redis.redis_port
   key_vault_id = module.tt-key-vault.key_vault_id
 }
