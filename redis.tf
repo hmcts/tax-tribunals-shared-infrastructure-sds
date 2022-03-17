@@ -7,10 +7,17 @@ module "redis" {
   common_tags = var.common_tags
 }
 
+# data "azurerm_subnet" "redis" {
+#   name                 = "redis"
+#   resource_group_name  = "ss-${var.env}-network-rg"
+#   virtual_network_name = "ss-${var.env}-vnet"
+# }
+  
 data "azurerm_subnet" "redis" {
-  name                 = "redis"
-  resource_group_name  = "ss-${var.env}-network-rg"
-  virtual_network_name = "ss-${var.env}-vnet"
+  provider             = "azurerm.pet-aks"
+  name                 = "pet_public_stg"
+  resource_group_name  = "pet_stg_network_resource_group"
+  virtual_network_name = "pet_stg_network"
 }
 
 resource "azurerm_key_vault_secret" "tt-redis-access-key" {
