@@ -3,7 +3,7 @@ module "redis" {
   product     = var.product
   location    = var.location
   env         = var.env
-  subnetid    = ''
+  subnetid    = ""
   common_tags = var.common_tags
 }
 
